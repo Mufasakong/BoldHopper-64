@@ -6,6 +6,7 @@ class ball{
   
   ball(float diameter){
     
+    //bop mon
      this.d = diameter;
   
   
