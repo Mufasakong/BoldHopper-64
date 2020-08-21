@@ -6,9 +6,9 @@ class ball{
   
   ball(float diameter){
     
-    //bop mon
+    //bop mon 13131
      this.d = diameter;
-  
+     
   
   }
 
