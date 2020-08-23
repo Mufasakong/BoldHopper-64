@@ -5,12 +5,22 @@ class Ball {
   PVector velocity;  //Boldens hastighed
   PVector gravity;   //Boldens tyngdekraft
   int topspeed;      //Boldens tophastighed 
-
+  
+  
+  //NYE TING!
+  float masse;       //Boldens masse
+  float radius;
+  
   Ball() {
     location = new PVector(mouseX, mouseY);
     velocity = new PVector(1.5, 2.0);
     gravity = new PVector(0, 0.2);
     topspeed = 100;
+    
+    
+    //NYE TING!
+    masse = 2.0f;
+    radius = 25f;
   }
 
 
@@ -38,7 +48,7 @@ class Ball {
   }
 
   boolean hit ( Ball b) {
-
+  //Anbefaler i stedet at bruge if(this == b) return false;
 
     float afstand = dist(b.location.x, b.location.y, location.x, location.y);
     boolean denSamme = (b == this); 

@@ -11,7 +11,7 @@ Ball() {
   gravity = new PVector(0,0.2);
   topspeed = 100;
   }
-  
+  //test
 void movement() {
   //Boldens placering bliver påvirket af hastigheden 
   location.add(velocity);
