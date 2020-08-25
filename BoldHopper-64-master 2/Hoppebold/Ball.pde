@@ -19,7 +19,7 @@ class Ball {
     
     
     //NYE TING!
-    masse = 2.0f;
+    masse = 20.0f;
     radius = 25f;
   }
 
@@ -34,12 +34,12 @@ class Ball {
     velocity.limit(topspeed);
 
     // Bouncer fra højre eller venstre del af tegnefladen
-    if ((location.x > width) || (location.x < 0)) {
+    if ((location.x+radius > width) || (location.x-radius < 0)) {
       velocity.x = velocity.x * -1;
     }
 
     // Bouncer fra bund og top
-    if (location.y > height || (location.y < 0)) {
+    if (location.y-radius > height || (location.y < 0)) {
 
       // Hastigheden bliver mindre hver gang den rammer jorden
       velocity.y = velocity.y * -0.95; 
@@ -47,13 +47,21 @@ class Ball {
     }
   }
 
-  boolean hit ( Ball b) {
+  boolean hit ( Ball b ) {
   //Anbefaler i stedet at bruge if(this == b) return false;
 
     float afstand = dist(b.location.x, b.location.y, location.x, location.y);
     boolean denSamme = (b == this); 
     boolean rammer = afstand < 50;
     return  rammer && !denSamme;
+  }
+    boolean hit2 ( Jord j ) {
+  //Anbefaler i stedet at bruge if(this == b) return false;
+
+    float afstand = dist(location.x, location.y, j.location.x, j.location.y);
+    
+    boolean rammer = afstand < 50 /2 + j.d/2;
+    return  rammer;
   }
 
   void display() {
@@ -62,5 +70,5 @@ class Ball {
     strokeWeight(10);
     noFill();
     ellipse(location.x, location.y, 50, 50);
-  }
+}
 }
